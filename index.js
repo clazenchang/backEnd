@@ -5,7 +5,7 @@ const port = 5000
 let jobs = [
   {
     "id": "1",
-    "title": "Senior Vue Developer",
+    "title": "Senior Vue Developer+++",
     "type": "Full-Time",
     "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as Vue or Angular.",
     "location": "Boston, MA",
@@ -223,6 +223,15 @@ app.get('/', (req, res) => {
 app.get('/jobs', (req, res) => {
   res.send(jobs)
 })
+
+app.get('/jobs/:id', (req, res) => {
+  res.send(jobs[req.params.id - 1])
+})
+
+// app.get('/jobs/:id', (req, res) => {
+//   // console.log(req)
+//   res.send(jobs[req.params.id - 1])
+// })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
