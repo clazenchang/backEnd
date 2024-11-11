@@ -225,13 +225,11 @@ app.get('/jobs', (req, res) => {
 })
 
 app.get('/jobs/:id', (req, res) => {
-  res.send(jobs[req.params.id - 1])
+  // res.send(jobs[req.params.id - 1])
+  res.send(term = jobs.find((token) =>    // use id search
+    token.id == req.params.id
+  ))
 })
-
-// app.get('/jobs/:id', (req, res) => {
-//   // console.log(req)
-//   res.send(jobs[req.params.id - 1])
-// })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
